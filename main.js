@@ -1,4 +1,3 @@
-console.log("main check")
 
 const container = document.querySelector(".customers")
 
@@ -19,24 +18,17 @@ const monthlist = [
 
 function monthName (num) {
     const tempobj = monthlist[num-1]
-    console.log(tempobj)
     return tempobj.name
 }
 
 for (let customer of customers){
 
-    console.log(customer.name.first)
-
-    // create a dom element for customer image
     const customerImg = document.createElement("img")
-    // set src attribute
     customerImg.src = customer.picture.large
-    // insert it into the DOM
     container.appendChild(customerImg)
 
     const customerHeader = document.createElement("h3")
     customerHeader.innerText = customer.name.first + " " + customer.name.last
-    // This step inserts it into the dom
     container.appendChild(customerHeader)
 
     const customerEmail = document.createElement("h4")
@@ -51,7 +43,7 @@ for (let customer of customers){
     customerAddress2.innerText = customer.location.city + ", " + nameToAbbr(customer.location.state) + " " + customer.location.postcode
     container.appendChild(customerAddress2)
 
-    let customerBday = document.createElement("p")
+    const customerBday = document.createElement("p")
     let yearString = customer.dob.date.substring(0,4)
     let parsedYear = parseInt(yearString, 10)
     let monthString = customer.dob.date.substring(5,7)
